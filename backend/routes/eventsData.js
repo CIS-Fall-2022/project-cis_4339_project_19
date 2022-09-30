@@ -123,6 +123,8 @@ router.put("/addAttendee/:id", (req, res, next) => {
     );
     
 });
+
+// Route based off the following link: https://www.bezkoder.com/node-express-mongodb-crud-rest-api/#Delete_an_object
 router.delete("/:id", (req, res, next) => {
     eventdata.findOneAndDelete(
         { _id: req.params.id },

@@ -19,7 +19,7 @@ router.get("/", (req, res, next) => {
 
 //GET single entry by ID
 router.get("/id/:id", (req, res, next) => { 
-    Orgdata.find({ _id: req.params.id }, (error, data) => {
+    orgdata.find({ _id: req.params.id }, (error, data) => {
         if (error) {
             return next(error)
         } else {
@@ -39,7 +39,7 @@ router.get("/search/", (req, res, next) => {
             date:  req.query["eventDate"]
         }
     };
-    Orgdata.find( 
+    orgdata.find( 
         dbQuery, 
         (error, data) => { 
             if (error) {
@@ -52,7 +52,7 @@ router.get("/search/", (req, res, next) => {
 });
 
 //GET events for which a client is signed up
-router.get("/client/:id", (req, res, next) => { 
+router.get("/orgdata/:id", (req, res, next) => { 
     orgdata.find( 
         { attendees: req.params.id }, 
         (error, data) => { 

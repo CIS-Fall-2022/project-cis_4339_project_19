@@ -65,7 +65,7 @@ router.get("/client/:id", (req, res, next) => {
     );
 });
 
-//POST
+//POST - Create an event entry
 router.post("/", (req, res, next) => { 
     eventdata.create( 
         req.body, 
@@ -79,7 +79,7 @@ router.post("/", (req, res, next) => {
     );
 });
 
-//PUT
+//PUT - Find an event by id and update
 router.put("/:id", (req, res, next) => {
     eventdata.findOneAndUpdate(
         { _id: req.params.id },
@@ -123,7 +123,7 @@ router.put("/addAttendee/:id", (req, res, next) => {
     );
     
 });
-
+// delete eventdata entry by id
 // Route based off the following link: https://www.bezkoder.com/node-express-mongodb-crud-rest-api/#Delete_an_object
 router.delete("/deletebyid/:id", (req, res, next) => {
     eventdata.findByIdAndRemove(

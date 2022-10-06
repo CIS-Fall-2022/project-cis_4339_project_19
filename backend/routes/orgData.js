@@ -65,7 +65,7 @@ router.get("/orgdata/:id", (req, res, next) => {
     );
 });
 
-//POST
+//POST - Create entry in orgData
 router.post("/", (req, res, next) => { 
     orgdata.create( 
         req.body, 
@@ -79,7 +79,7 @@ router.post("/", (req, res, next) => {
     );
 });
 
-//PUT
+//PUT - Find a orgData entry by id and update
 router.put("/:id", (req, res, next) => {
     orgdata.findOneAndUpdate(
         { _id: req.params.id },
@@ -123,7 +123,7 @@ router.put("/addAttendee/:id", (req, res, next) => {
     );
     
 });
-
+// Delete entry in orgdata by id
 // Route based off the following link: https://www.bezkoder.com/node-express-mongodb-crud-rest-api/#Delete_an_object
 router.delete("/deletebyid/:id", (req, res, next) => {
     orgdata.findByIdAndRemove(

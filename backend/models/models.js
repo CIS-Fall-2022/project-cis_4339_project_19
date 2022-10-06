@@ -89,7 +89,7 @@ let eventDataSchema = new Schema({
         type: String,
     },
     attendees: [{
-        type: String
+        type: [String]
     }]
 }, {
     collection: 'eventData'

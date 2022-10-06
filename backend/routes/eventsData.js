@@ -138,6 +138,21 @@ router.delete("/deletebyid/:id", (req, res, next) => {
         }
     );
 });
+//Get the clients from the past two months
+// Route based off the following link: https://mongoosejs.com/docs/api.html
+//https://www.mongodb.com/docs/manual/reference/operator/query/gte/, https://www.mongodb.com/docs/manual/reference/operator/query/lt/
+router.get("/pasttwo", (req, res, next) => {
+    let previousD = new Date();
+    previousD.setMonth(previousD.getMonth() - 2);
+    eventdata.find({"date": { "$gte": previousD, "$lt": new Date()}, "Org_Id": process.env.primarydata},
+     (error, data) => {
+        if (error) {
+            return next(error);
+        } else {
+            res.json(data);
+        }
+    });
+});
 
 
 

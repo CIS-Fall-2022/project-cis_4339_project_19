@@ -85,12 +85,12 @@ let eventDataSchema = new Schema({
             type: String,
         }
     },
-    description: {
+     description: {
         type: String,
     },
-    attendees: [{
+    attendees: {
         type: [String]
-    }]
+    }
 }, {
     collection: 'eventData'
 });
@@ -101,7 +101,7 @@ let OrgDataSchema = new Schema({
         type: String,
         require: true
     },
-    Organiation_Name: {
+    Organization_Name: {
         type: String,
         require: true
     },

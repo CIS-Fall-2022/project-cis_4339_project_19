@@ -53,7 +53,7 @@ let primaryDataSchema = new Schema({
 //collection for eventData
 let eventDataSchema = new Schema({
     _id: { type: String, default: uuid.v1 },
-     CompanyId: {
+    eventName: {
         type: String,
         require: true
     },
@@ -105,10 +105,7 @@ let OrgDataSchema = new Schema({
         type: String,
         require: true
     },
-    Org_Id: {
-        type: String,
-        require: true
-    }
+   
 }, {
     collection: 'Organization',
 });
@@ -120,3 +117,4 @@ const orgdata = mongoose.model('Organization', OrgDataSchema);
 
 // package the models in an object to export 
 module.exports = { primarydata, eventdata, orgdata }
+

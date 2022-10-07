@@ -4,7 +4,7 @@ const router = express.Router();
 //importing data model schemas
 let { orgdata } = require("../models/models"); 
 
-//GET all entries
+//GET all entries for org
 router.get("/", (req, res, next) => { 
     orgdata.find( 
         (error, data) => {
@@ -17,7 +17,7 @@ router.get("/", (req, res, next) => {
     ).sort({ 'updatedAt': -1 }).limit(10);
 });
 
-//GET single entry by ID
+//GET single entry by ID for org
 router.get("/id/:id", (req, res, next) => { 
     orgdata.find({ _id: req.params.id }, (error, data) => {
         if (error) {
@@ -28,7 +28,7 @@ router.get("/id/:id", (req, res, next) => {
     })
 });
 
-//GET entries based on search query
+//GET entries based on search query for org
 //Ex: '...?eventName=Food&searchBy=name' 
 router.get("/search/", (req, res, next) => { 
     let dbQuery = "";
@@ -51,19 +51,7 @@ router.get("/search/", (req, res, next) => {
     );
 });
 
-//GET events for which a client is signed up
-router.get("/orgdata/:id", (req, res, next) => { 
-    orgdata.find( 
-        { attendees: req.params.id }, 
-        (error, data) => { 
-            if (error) {
-                return next(error);
-            } else {
-                res.json(data);
-            }
-        }
-    );
-});
+
 
 //POST - Create entry in orgData
 router.post("/", (req, res, next) => { 
@@ -94,35 +82,7 @@ router.put("/:id", (req, res, next) => {
     );
 });
 
-//PUT add attendee to event
-router.put("/addAttendee/:id", (req, res, next) => {
-    //only add attendee if not yet signed uo
-    orgdata.find( 
-        { _id: req.params.id, attendees: req.body.attendee }, 
-        (error, data) => { 
-            if (error) {
-                return next(error);
-            } else {
-                if (data.length == 0) {
-                    eventdata.updateOne(
-                        { _id: req.params.id }, 
-                        { $push: { attendees: req.body.attendee } },
-                        (error, data) => {
-                            if (error) {
-                                consol
-                                return next(error);
-                            } else {
-                                res.json(data);
-                            }
-                        }
-                    );
-                }
-                
-            }
-        }
-    );
-    
-});
+
 // Delete entry in orgdata by id
 // Route based off the following link: https://www.bezkoder.com/node-express-mongodb-crud-rest-api/#Delete_an_object
 router.delete("/deletebyid/:id", (req, res, next) => {

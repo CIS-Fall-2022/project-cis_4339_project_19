@@ -203,6 +203,12 @@
               @click="$router.go(-1)"
             >Go back</button>
           </div>
+          <div class="flex justify-between mt-10 mr-10"></div>
+            <button
+              @click="deleteEvent"
+              type="submit"
+              class="border border-red-700 bg-white text-red-700 rounded"
+            >Delete Event</button>
         </div>
 
         <hr class="mt-10 mb-10" />

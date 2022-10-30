@@ -125,7 +125,7 @@ router.put("/addAttendee/:id", (req, res, next) => {
 });
 // delete eventdata entry by id
 // Route based off the following link: https://www.bezkoder.com/node-express-mongodb-crud-rest-api/#Delete_an_object
-router.delete("/deletebyid/:id", (req, res, next) => {
+router.delete("/:id", (req, res, next) => {
     eventdata.findByIdAndRemove(
         { _id: req.params.id },
         req.body,

@@ -316,6 +316,16 @@ export default {
     formattedDate(datetimeDB) {
       return DateTime.fromISO(datetimeDB).plus({ days: 1 }).toLocaleString();
     },
+    deleteEvent() {
+      this.event.services = this.checkedServices;
+      let apiURL = import.meta.env.VITE_ROOT_API + `/eventdata/${this.id}`;
+      axios.delete(apiURL, this.event).then(() => {
+        alert("Event has been deleted.");
+        this.$router.back().catch((error) => {
+          console.log(error);
+        });
+      });
+    },
     handleEventUpdate() {
       this.event.services = this.checkedServices;
       let apiURL = import.meta.env.VITE_ROOT_API + `/eventdata/${this.id}`;

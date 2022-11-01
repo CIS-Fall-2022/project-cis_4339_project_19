@@ -94,7 +94,7 @@ router.put("/:id", (req, res, next) => {
 
 // Delete primarydata entry by id
 // Route based off the following link: https://www.bezkoder.com/node-express-mongodb-crud-rest-api/#Delete_an_object
-router.delete("/deleteby/:id", (req, res, next) => {
+router.delete("/:id", (req, res, next) => {
     primarydata.findByIdAndRemove(
         { _id: req.params.id },
         req.body,

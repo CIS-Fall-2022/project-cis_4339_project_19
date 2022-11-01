@@ -17,4 +17,7 @@ MONGO_URL = mongodb+srv://<username>:<password>@cluster0.abcdc.mongodb.net/dbnam
 ### Compiles and hot-reloads for development
 ```
 npm start
+
 ```
+
+### The following is our URL for Postman: https://documenter.getpostman.com/view/19632793/2s83zfS5yE

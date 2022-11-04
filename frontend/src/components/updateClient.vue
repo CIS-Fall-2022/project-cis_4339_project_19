@@ -269,7 +269,7 @@ export default {
             </label>
           </div>
         </div>
-
+        //this delete function defines that on click this will execute the delete client function
         <!-- grid container -->
         <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
           <h2 class="text-2xl font-bold">Address Details</h2>
@@ -349,7 +349,7 @@ export default {
               @click="$router.go(-1)"
             >Go back</button>
           </div>
-          //this delete function defines that on click this will execute the delete client function
+          
           <div class="flex justify-between mt-10 mr-10"></div>
             <button
               @click="deleteClient"

@@ -349,6 +349,7 @@ export default {
               @click="$router.go(-1)"
             >Go back</button>
           </div>
+          //this delete function defines that on click this will execute the delete client function
           <div class="flex justify-between mt-10 mr-10"></div>
             <button
               @click="deleteClient"

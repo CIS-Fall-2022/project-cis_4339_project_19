@@ -204,6 +204,7 @@
             >Go back</button>
           </div>
           <div class="flex justify-between mt-10 mr-10"></div>
+          <!-- this is the delete button that on click activates -->
             <button
               @click="deleteEvent"
               type="submit"
@@ -316,6 +317,7 @@ export default {
     formattedDate(datetimeDB) {
       return DateTime.fromISO(datetimeDB).plus({ days: 1 }).toLocaleString();
     },
+    <!-- the function uses axios to access the backend comment to process a delete function of the event -->
     deleteEvent() {
       this.event.services = this.checkedServices;
       let apiURL = import.meta.env.VITE_ROOT_API + `/eventdata/${this.id}`;

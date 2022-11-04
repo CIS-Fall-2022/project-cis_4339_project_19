@@ -104,6 +104,7 @@ export default {
         });
       });
     },
+    //for delete functionality that uses axios to delete clients
     deleteClient() {
       let apiURL = import.meta.env.VITE_ROOT_API + `/primarydata/${this.id}`;
       axios.delete(apiURL, this.client).then(() => {

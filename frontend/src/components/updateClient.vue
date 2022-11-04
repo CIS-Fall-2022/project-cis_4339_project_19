@@ -269,8 +269,8 @@ export default {
             </label>
           </div>
         </div>
-        //this delete function defines that on click this will execute the delete client function
-        <!-- grid container -->
+        
+        <!-- grid container - this delete function uses axios to execute the functionality -->
         <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
           <h2 class="text-2xl font-bold">Address Details</h2>
           <!-- form field -->

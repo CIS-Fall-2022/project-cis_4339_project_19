@@ -56,6 +56,10 @@ router.get("/client/:id", (req, res, next) => {
     eventdata.find( 
         { attendees: req.params.id }, 
         (error, data) => { 
+            console.log(data)
+            if (data.length===0) {
+                error = Error('Id not found', { statusCode: 404 })
+            }
             if (error) {
                 return next(error);
             } else {
@@ -106,10 +110,12 @@ router.put("/addAttendee/:id", (req, res, next) => {
                 if (data.length == 0) {
                     eventdata.updateOne(
                         { _id: req.params.id }, 
-                        { $push: { attendees: req.body.attendee } },
+                        { $addToSet: { attendees: req.body.attendee } },
                         (error, data) => {
+                            if (data.modifiedCount==0){
+                                error = Error('attendee is already added', { statusCode: 404 })
+                            }
                             if (error) {
-                                consol
                                 return next(error);
                             } else {
                                 res.json(data);

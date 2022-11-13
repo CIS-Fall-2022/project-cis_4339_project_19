@@ -204,6 +204,7 @@
             >Go back</button>
           </div>
           <div class="flex justify-between mt-10 mr-10"></div>
+          <!-- this is the delete button that on click activates there is also a functionality at the bottom that uses axios-->
             <button
               @click="deleteEvent"
               type="submit"

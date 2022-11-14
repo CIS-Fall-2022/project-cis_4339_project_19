@@ -69,4 +69,16 @@ export default {
   color: white;
   padding: 18px;
 }
+
+.table1 {
+font-family: 'Times New Roman'
+, Times
+, serif;
+color: #0d0b0c;
+width: 100%;
+background-color: #057c35;
+text-align: left;
+border: 2px solid rgb(10, 10, 10);
+}
+
 </style>

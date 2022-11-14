@@ -1,8 +1,7 @@
 <template>
+  <!-- div for placing Bar chart and Data-->
   <div>
-    <AttendingBar v-if="!loading && !error" :label="mychartlabels" :chart-data="mychartData"></AttendingBar>
-    <div class="mt-40" v-if="loading">
-    </div>
+    <AttendingBar v-if="!othererror && !error" :label="mychartlabels" :chart-data="mychartData"></AttendingBar>
   </div>
  <!-- TABLE ----------------------------------------------------->
  
@@ -17,6 +16,7 @@
         </tr>
       </thead>
       <tbody>
+        <!-- FOR loop for inserting data within table-->
         <tr v-for="data in alleventdata" v-bind:key="data.id">
           <td style="text-align: left; width: 10rem;"> {{ data.eventName }}</td>
           <td style="text-align: left; width: 10rem;"> {{data.attendees.length}}</td>
@@ -31,12 +31,14 @@
   
 </template>
 <script>
+// Import necessary things
 import AttendingBar from '../assets/barChart.vue';
 import axios from "axios";
 export default {
   components: {
     AttendingBar,
   },
+  // Create Arrays where JSON pulled from our API will be stored
   data() {
     return {
       mychartlabels: [],
@@ -44,15 +46,16 @@ export default {
       attendeeID: [],
       myeventName: [],
       alleventdata: [],
-      loading: false,
+      othererror: false,
       error: null,
     }
   },
+  // using FETCH inorder to pull from our API 
   methods: {
     async fetchData() {
       try {
         this.error = null;
-        this.loading = true;
+        this.othererror = true;
         const url = 'http://localhost:3000/eventData/pasttwo';
         const response = await axios.get(url);
         //"re-organizing" - mapping json from the response
@@ -62,6 +65,7 @@ export default {
         this.myeventName = response.data.map((item) => item.eventName);
         this.alleventdata = response.data;
       } catch (err) {
+        // IF statemsnt for specific types of errrors and output
         if (err.response) {
           // Response Error
           this.error = {
@@ -82,7 +86,7 @@ export default {
           };
         }
       }
-      this.loading = false;
+      this.othererror = false;
     },
   },
   mounted() {

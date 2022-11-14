@@ -4,8 +4,7 @@ import App from './App.vue'
 import './index.css'
 import VueChartkick from 'vue-chartkick'
 import 'chartkick/chart.js'
-import VueChartkick from 'vue-chartkick'
-import 'chartkick/chart.js'
+
 
 const app = createApp(App);
 app.use(router);

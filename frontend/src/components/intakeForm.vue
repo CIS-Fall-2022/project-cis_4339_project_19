@@ -66,6 +66,7 @@ export default {
           })
           .catch((error) => {
             console.log(error);
+            alert("Phone number exist");
           });
       }
     },

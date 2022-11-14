@@ -20,4 +20,4 @@ Follow instructions in frontend README
 
 ### The following is our URL for Postman: https://documenter.getpostman.com/view/19632793/2s83zfS5yE
 
-npm install vue.chartkick
+npm install chartkick

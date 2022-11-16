@@ -25,7 +25,8 @@ let primaryDataSchema = new Schema({
     },
     phoneNumbers: {
         type: Array,
-        required: true
+        required: true,
+        unique: true
     },
     address: {
         line1: {

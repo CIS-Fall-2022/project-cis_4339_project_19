@@ -46,6 +46,9 @@ router.get("/search/", (req, res, next) => {
     primarydata.find( 
         dbQuery, 
         (error, data) => { 
+            if (data.length===0) {
+                error = Error('Client not found', { statusCode: 404 })
+            }
             if (error) {
                 return next(error);
             } else {

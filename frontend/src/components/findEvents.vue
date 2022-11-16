@@ -122,7 +122,11 @@ export default {
       }
       axios.get(apiURL).then((resp) => {
         this.queryData = resp.data;
-      });
+      })
+      .catch((error) => {
+            console.log(error);
+            alert("Event not found exist");
+          });
     },
     clearSearch() {
       //Resets all the variables

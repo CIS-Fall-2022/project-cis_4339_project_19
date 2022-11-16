@@ -42,6 +42,9 @@ router.get("/search/", (req, res, next) => {
     eventdata.find( 
         dbQuery, 
         (error, data) => { 
+            if (data.length===0) {
+                error = Error('Event not found', { statusCode: 404 })
+            }
             if (error) {
                 return next(error);
             } else {
@@ -56,7 +59,7 @@ router.get("/client/:id", (req, res, next) => {
     eventdata.find( 
         { attendees: req.params.id }, 
         (error, data) => { 
-            console.log(data)
+            
             if (data.length===0) {
                 error = Error('Id not found', { statusCode: 404 })
             }
